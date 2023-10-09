@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Random Cocktail</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Titan+One&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/styles/main.css">
+</head>
+
+<body>
+  <h1>Lookup a random cocktail</h1>
+  <div class="card" style="background: url('<%= content.drinks[0].strDrinkThumb %>') center/cover no-repeat;">
+
+    <div class="card-content">
+      <h2><%= content.drinks[0].strDrink %></h2>
+      <p>Alcoholic: <%= content.drinks[0].strAlcoholic %></p>
+      <p>Glass: <%= content.drinks[0].strGlass %></p>
+      <p>Instructions: <%= content.drinks[0].strInstructions %></p>
+
+      <h3>Ingredients:</h3>
+      <ul>
+        <% for (let i = 1; i <= 15; i++) { %>
+          <% const ingredient = content.drinks[0]["strIngredient" + i]; %>
+          <% const measure = content.drinks[0]["strMeasure" + i]; %>
+          <% if (ingredient) { %>
+            <li><%= measure %> <%= ingredient %></li>
+          <% } %>
+        <% } %>
+      </ul>
+    </div>
+  </div>
+
+  <button id="refreshButton">Refresh</button>
+  <script src="/js/button.js"></script>
+  <footer>
+    Made with ❤️ by Burak
+  </footer>
+</body>
+
+</html>
